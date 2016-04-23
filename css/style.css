@@ -57,3 +57,13 @@
      margin-right: 40px;
      float: right;
  }
+
+ #plants  {
+     display: inline-block;
+ }
+ #creek {
+     display: inline-block;
+     float: right;
+     margin-right: 50px;
+     height: 460px;
+ }

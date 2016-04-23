@@ -2,42 +2,62 @@
 <html>
 
 <head>
-	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <style>
-    	#header {
-    		font-size: 50px;
-    		font-family: Oxygen;
-    	}
-        #plant-grid {
-            
-        }
-        #meters {
-            
-        }
-        #game-frame {
-            
-        }
+    #header {
+        font-size: 50px;
+        font-family: Oxygen;
+    }
+    
+    #plant-grid {}
+    
+    #meters {}
+    
+    #game-frame {
+        border: 5px solid black;
+        background-color: green;
+    }
+    
+    #plant-spot {
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        margin: 0;
+        background-color: brown;
+    }
+    
+    br {
+        display: block;
+        margin: 0;
+    }
     </style>
 </head>
 
 <body>
-	<div id="header">
-	Placeholder name
-	</div>
+    <div id="header">
+        <center>Hydroculture</center>
+    </div>
     <div id="game-container">
-    	<div id="meters"></div> <!-- Water level, pollutant level, etc -->
-        <div id="game-frame"> 
-        	<div id="plants">
-        		<div id="plant-grid"> 
-        		</div>
-        	</div>
-        	<div id="creek">
-        	</div>
+        <div id="meters"></div>
+        <!-- Water level, pollutant level, etc -->
+        <div id="game-frame">
+            <div id="plants">
+                <div id="plant-grid">
+                </div>
+            </div>
+            <div id="creek">
+            </div>
         </div>
     </div>
-    <script src="js/main.js">
-        
-    </script>
+    <script src="js/notifier.js"></script>
+    <script src="js/plants/corn.js"></script>
+    <script src="js/plants/blank.js"></script>
+    <script src="js/plants/rice.js"></script>
+    <script src="js/plants/potato.js"></script>
+    <script src="js/plant.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

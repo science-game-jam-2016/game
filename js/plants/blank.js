@@ -3,5 +3,5 @@ var Blank = function() {
 	this.name = ""
 	this.waterPerDay = 0
 	this.image = ""
-	this.daysPast = 0
+	this.dayGrowth = 0
 }

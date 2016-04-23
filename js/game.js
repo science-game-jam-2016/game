@@ -106,8 +106,8 @@ Grid.prototype.draw = function() {
     var that = this
     for (var i = 0; i < planted.length; i++) {
         planted[i].addEventListener('click', function(e) {
-            var p = notifier.promptChoices("Would you like to remove that?", ["y", "n"])
-            if (p === "y") { that.delPlant(e); } else { alert("Cancelled."); }
+            var p = notifier.promptBool("Would you like to remove that?")
+            if (p) { that.delPlant(e); } else { notify.info("Cancelled."); }
         }, false);
     }
 }

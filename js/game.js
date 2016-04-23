@@ -13,10 +13,13 @@ Game.prototype.initGrid = function() {
     gridContainer = document.getElementById('plant-grid');
     this.plantGrid = new Grid(gridContainer)
     this.plantGrid.draw()
+    this.refreshVars()
 }
 
 Game.prototype.refreshVars = function() {
-    document.getElementById('day-meter').text = "Day " + this.day;
+    document.getElementById('day-meter').innerHTML = this.day;
+    document.getElementById('water-meter').innerHTML = this.water;
+    document.getElementById('money-meter').innerHTML = this.money;
 }
 
 Game.prototype.plantPlant = function(type, e) {

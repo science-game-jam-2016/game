@@ -41,6 +41,7 @@
      margin-left: 2px;
      margin-right: 2px;
      background-image: url("/img/rock-texture71.jpg");
+      box-shadow: 0px 2px 30px black;
  }
  
  br {
@@ -57,26 +58,38 @@
      margin-right: 40px;
      float: right;
  }
-
- #plants  {
+ 
+ #plants {
      display: inline-block;
  }
-
+ 
  #creek {
      display: inline-block;
      float: right;
      margin-right: 50px;
      height: 460px;
  }
-
- .Corn  {
+ 
+ .Corn {
      content: url("/img/ear_of_yellow_corn.png");
  }
-
- .Potato  {
+ 
+ .Potato {
      content: url("/img/potato.png");
  }
  
- .Rice  {
+ .Rice {
      content: url("/img/rice.png");
+ }
+ 
+ #day-meter::before {
+     content: "Day ";
+ }
+ 
+ #water-meter::before {
+     content: "Water: ";
+ }
+ 
+ #money-meter::before {
+     content: "Money: ";
  }

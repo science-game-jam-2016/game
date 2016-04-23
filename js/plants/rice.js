@@ -3,4 +3,5 @@ var Rice = function() {
 	this.name = "Rice"
 	this.waterPerDay = 50 // TODO refine this value
 	this.image = "/img/test.png"
+	this.dayGrowth = 5
 }

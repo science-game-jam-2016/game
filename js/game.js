@@ -1,5 +1,12 @@
 var Game = function() {
-
+	this.water = 100;
+	this.money = 50;
+	this.day = 1;
+	this.seeds = {
+		corn: 0,
+		potato: 0,
+		rice: 0
+	}
 }
 
 Game.prototype.initGrid = function() {
@@ -7,6 +14,30 @@ Game.prototype.initGrid = function() {
     this.plantGrid = new Grid(gridContainer)
     this.plantGrid.draw()
 }
+
+Game.prototype.refreshVars = function() {
+    document.getElementById('day-meter').text = "Day " + this.day;
+}
+
+Object.defineProperty(Game, "water", {
+    get: function myProperty() {
+        return this.water
+    },
+    set: function myProperty(a) {
+        this.water = a;
+        this.refreshVars()
+    }
+});
+
+Object.defineProperty(Game, "day", {
+    get: function myProperty() {
+        return this.day
+    },
+    set: function myProperty(a) {
+        this.day = a;
+        this.refreshVars()
+    }
+});
 
 var Grid = function(container) {
 	this.c = container;

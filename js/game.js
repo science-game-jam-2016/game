@@ -20,20 +20,20 @@ Game.prototype.refreshVars = function() {
 }
 
 Object.defineProperty(Game, "water", {
-    get: function myProperty() {
+    get: function water() {
         return this.water
     },
-    set: function myProperty(a) {
+    set: function water(a) {
         this.water = a;
         this.refreshVars()
     }
 });
 
 Object.defineProperty(Game, "day", {
-    get: function myProperty() {
+    get: function day() {
         return this.day
     },
-    set: function myProperty(a) {
+    set: function day(a) {
         this.day = a;
         this.refreshVars()
     }
@@ -62,6 +62,21 @@ Grid.prototype.draw = function() {
 	}
 	this.c.innerHTML = tmp
 }
+
+Grid.prototype.setPlantAtLoc = function(x, y, p) {
+	this.plants[y][x] = p;
+	this.draw()
+}
+
+Object.defineProperty(Game, "plants", {
+    get: function plants() {
+        return this.plants
+    },
+    set: function plants(a) {
+        this.plants = a;
+        this.draw()
+    }
+});
 
 function createArray(length) {
     var arr = new Array(length || 0),

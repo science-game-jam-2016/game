@@ -61,9 +61,21 @@
  #plants  {
      display: inline-block;
  }
+
  #creek {
      display: inline-block;
      float: right;
      margin-right: 50px;
      height: 460px;
+ }
+
+ .Corn  {
+     content: url("/img/ear_of_yellow_corn.png");
+ }
+
+ .Potato  {
+     content: url("/img/potato.png");
+ }
+ .Rice  {
+     content: url("/img/rice.png");
  }

@@ -53,7 +53,7 @@
 }
 
 #plant-spot:hover {
-     box-shadow: 0px 0px 10px white;
+    box-shadow: 0px 0px 10px white;
 }
 
 br {
@@ -73,7 +73,7 @@ br {
 }
 
 .meter::before {
-     font-weight: lighter;
+    font-weight: lighter;
 }
 
 #plants {
@@ -87,6 +87,7 @@ br {
     height: 460px;
     text-align: center;
 }
+
 
 /*.Corn {
     content: url("/img/ear_of_yellow_corn.png");
@@ -104,7 +105,7 @@ br {
     content: "Day ";
 }
 
-#water-meter::before { 
+#water-meter::before {
     content: "Water: ";
 }
 
@@ -145,65 +146,115 @@ br {
 }
 
 body {
-     margin: 0;
-     background-image: url('/img/barn.jpg');
-     background-attachment: fixed;
-     font-family: Oxygen;
+    margin: 0;
+    background-image: url('/img/barn.jpg');
+    background-attachment: fixed;
+    font-family: Oxygen;
 }
 
 .plant-img {
-     height: 50px;
-     width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 #next {
-     position: relative;
-     display: inline-block;
-     background-color: white;
-     padding: 10px;
-     border: 3px solid white;
-     width: 150px;
-     padding-left: 5px;
-     transition: all 1s;
-     -webkit-transition: all 0.3s;
-     cursor: pointer;
-     box-shadow: 0px 0px 0px black;
-     text-align: center;
-     font-size: 30px;
-     top: -30px;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    border: 3px solid white;
+    width: 150px;
+    padding-left: 5px;
+    transition: all 1s;
+    -webkit-transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px black;
+    text-align: center;
+    font-size: 30px;
+    top: -30px;
 }
 
 #next:hover {
-     padding-left: 50px;
-     border: 3px solid black;
-     box-shadow: 0px 0px 50px black;
+    padding-left: 50px;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px black;
 }
+
+#shop-btn {
+    position: relative;
+    background-color: white;
+    display: inline-block;
+    border: 3px solid white;
+    padding: 10px;
+    width: 100px;
+    text-align: left;
+    padding-left: 5px;
+    transition: all 1s;
+    -webkit-transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px black;
+    text-align: center;
+    font-size: 30px;
+    top: -30px;
+    float: right;
+}
+
+#shop-btn:hover {
+    padding-right: 50px;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px black;
+}
+
+#button-wrapper {}
 
 #shop {
-     position: relative;
-     background-color: white;
-     display: inline-block;
-     border: 3px solid white;
-     padding: 10px;
-     width: 100px;
-     text-align: left;
-     padding-left: 5px;
-     transition: all 1s;
-     -webkit-transition: all 0.3s;
-     cursor: pointer;
-     box-shadow: 0px 0px 0px black;
-     text-align: center;
-     font-size: 30px;
-     top: -30px;
-     float: right;
+    position: relative;
+    top: -500px;
+    width: 700px;
+    height: 400px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 40px black;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 1s;
+    -webkit-transition: all 0.5s;
 }
 
-#shop:hover {
-     padding-right: 50px;
-     border: 3px solid black;
-     box-shadow: 0px 0px 50px black;
+#shop-title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 40px;
+    border-bottom: 1px solid grey;
+    box-shadow: 0px 0px 10px black;
+    margin-bottom: 50px;
 }
 
-#button-wrapper {
+#shop-item {
+    border: 2px dashed black;
+    width: 100px;
+    display: inline-block;
+    height: 100px;
+    cursor: pointer;
+}
 
+#shop-close {
+    float: right;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    background-color: red;
+    content: "X"
+}
+
+.closed {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+
+.open {
+    transform: scale(1);
+    -webkit-transform: scale(1);
 }

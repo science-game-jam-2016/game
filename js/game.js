@@ -9,6 +9,7 @@ var Game = function() {
         potato: 0,
         rice: 0
     }
+    this.shop = new Shop()
 }
 
 Game.prototype.initGrid = function() {
@@ -22,6 +23,15 @@ Game.prototype.initGrid = function() {
             tooltip[i].style.left = e.pageX + 'px';
             tooltip[i].style.top = e.pageY + 'px';
         }
+    }
+    this.shop.items.push(new RainwaterCollection());
+    this.shop.draw();
+    var that = this;
+    document.getElementById('shop-btn').onclick = function() {
+    	that.shop.show();
+    }
+    document.getElementById('shop-close').onclick = function() {
+    	that.shop.hide();
     }
 }
 
@@ -180,6 +190,10 @@ Game.prototype.nextDay = function() {
     if (this.water <= 0) {
     	notifier.loss()
     }
+}
+
+Game.prototype.openShop = function() {
+	this.shop.show()
 }
 
 function createArray(length) {

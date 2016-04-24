@@ -22,9 +22,16 @@ var notifier = {
         //     return ans;
         // }
     },
-    promptBool: function(msg) {
-        var p = notifier.promptChoices(msg, ["y", "n"]);
-        return (p === "y")
+    promptBool: function(cb) {
+        document.getElementById("yes-no").className = "open";
+        document.getElementById("yes").onclick = function() {
+            document.getElementById("yes-no").className = "closed";
+            cb(true)
+        }
+        document.getElementById("no").onclick = function() {
+            document.getElementById("yes-no").className = "closed";
+            cb(false)
+        }
     },
     info: function(msg) {
         alert(msg);

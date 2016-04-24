@@ -6,6 +6,7 @@ var Corn = function() {
 	this.dayGrowth = 2
 	this.profitPerDay = 10
 	this.price = 5
+	this.lifetime = 3
 }
 
 Corn.prototype = Object.create(Plant.prototype);

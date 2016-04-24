@@ -16,7 +16,7 @@ var notifier = {
         alert(msg);
     },
     loss: function() {
-    	alert("You ran out of water. Better luck next time!");
+    	createPopup("You ran out of water. Better luck next time!");
     	location.reload()
     }
 }

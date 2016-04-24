@@ -6,6 +6,7 @@ var Rice = function() {
 	this.dayGrowth = 5
 	this.profitPerDay = 40
 	this.price = 20
+	this.lifetime = 10
 }
 
 Rice.prototype = Object.create(Plant.prototype);

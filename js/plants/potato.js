@@ -6,6 +6,7 @@ var Potato = function() {
 	this.dayGrowth = 4
 	this.profitPerDay = 30
 	this.price = 10
+	this.lifetime = 5
 }
 
 Potato.prototype = Object.create(Plant.prototype);

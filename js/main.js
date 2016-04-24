@@ -9,3 +9,7 @@ g.plantGrid.setPlantAtLoc(2, 0, new Corn())
 document.getElementById('next').onclick = function() {
 	g.nextDay();
 }
+
+document.getElementById('shop').onclick = function() {
+	g.openShop();
+}

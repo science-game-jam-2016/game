@@ -27,7 +27,7 @@
 }
 
 #game-frame {
-    border: 5px solid black;
+    border: 3px solid black;
     background-image: url("/img/grass-textures-17.jpg");
     box-shadow: 0px 10px 60px black;
     height: 500px;
@@ -69,6 +69,11 @@ br {
     margin-top: 10px;
     margin-right: 40px;
     float: right;
+    font-weight: bold;
+}
+
+.meter::before {
+     font-weight: lighter;
 }
 
 #plants {
@@ -99,7 +104,7 @@ br {
     content: "Day ";
 }
 
-#water-meter::before {
+#water-meter::before { 
     content: "Water: ";
 }
 
@@ -152,18 +157,53 @@ body {
 }
 
 #next {
+     position: relative;
+     display: inline-block;
      background-color: white;
      padding: 10px;
-     width: 100px;
+     border: 3px solid white;
+     width: 150px;
      padding-left: 5px;
      transition: all 1s;
      -webkit-transition: all 0.3s;
      cursor: pointer;
      box-shadow: 0px 0px 0px black;
      text-align: center;
+     font-size: 30px;
+     top: -30px;
 }
 
 #next:hover {
      padding-left: 50px;
+     border: 3px solid black;
      box-shadow: 0px 0px 50px black;
+}
+
+#shop {
+     position: relative;
+     background-color: white;
+     display: inline-block;
+     border: 3px solid white;
+     padding: 10px;
+     width: 100px;
+     text-align: left;
+     padding-left: 5px;
+     transition: all 1s;
+     -webkit-transition: all 0.3s;
+     cursor: pointer;
+     box-shadow: 0px 0px 0px black;
+     text-align: center;
+     font-size: 30px;
+     top: -30px;
+     float: right;
+}
+
+#shop:hover {
+     padding-right: 50px;
+     border: 3px solid black;
+     box-shadow: 0px 0px 50px black;
+}
+
+#button-wrapper {
+
 }

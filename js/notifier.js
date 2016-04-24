@@ -1,7 +1,11 @@
 var notifier = {
     promptChoices: function(msg, choices) {
         var ans = prompt(msg);
-        if (choices.indexOf(ans) < 0) {
+        choices = choices.map(function(e){
+            console.log(e);
+            return e.toLowerCase();
+        });
+        if (choices.indexOf(ans.toLowerCase()) < 0) {
             alert("Invalid answer. You can type " + choices.join(", "))
             return notifier.promptChoices(msg, choices)
         } else {

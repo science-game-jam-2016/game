@@ -92,15 +92,15 @@ Grid.prototype.pP = function(t, e) {
     var y = elem.attributes["data-y"].value;
 
     switch (t) {
-        case "Corn":
+        case "corn":
             var p = new Corn();
             break;
 
-        case "Rice":
+        case "rice":
             var p = new Rice()
             break;
 
-        case "Potato":
+        case "potato":
             var p = new Potato()
             break;
 

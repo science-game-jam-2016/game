@@ -10,7 +10,7 @@
 #plant-grid {
     padding-top: 50px;
     padding-left: 30px;
-    cursor: url("/img/clipart-shovel-167e.png") auto;
+    cursor: url("/img/clipart-shovel-167e.png");
 }
 
 #meters {

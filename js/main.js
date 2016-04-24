@@ -20,6 +20,9 @@ document.getElementsByTagName('body')[0].onclick = function(e) {
 	if (e.srcElement.id.indexOf("shop") < 0) {
 		g.closeShop();
 	}
+	if (e.srcElement.id === "game-frame" < 0) {
+		document.getElementById("new-plant").className = "closed"
+	}
 }
 
 document.getElementById('start').onclick = function() {

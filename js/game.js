@@ -142,8 +142,10 @@ Grid.prototype.draw = function() {
     var that = this;
     for (var i = 0; i < blanks.length; i++) {
         blanks[i].addEventListener('click', function(e) {
-            var newPlant = notifier.promptChoices("What plant would you like to plant there?", ["Corn", "Potato", "Rice"])
-            that.pP(newPlant, e);
+            notifier.promptChoices(function(p){
+                document.getElementById("new-plant").className = "closed"
+                that.pP(p, e);
+            })
         }, false);
     }
 

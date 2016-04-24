@@ -1,16 +1,26 @@
 var notifier = {
-    promptChoices: function(msg, choices) {
-        var ans = prompt(msg);
-        choices = choices.map(function(e){
-            console.log(e);
-            return e.toLowerCase();
-        });
-        if (choices.indexOf(ans.toLowerCase()) < 0) {
-            alert("Invalid answer. You can type " + choices.join(", "))
-            return notifier.promptChoices(msg, choices)
-        } else {
-            return ans;
+    promptChoices: function(cb) {
+        document.getElementById("new-plant").className = "open";
+        document.getElementById("new-corn").onclick = function() {
+            cb("corn")
         }
+        document.getElementById("new-potato").onclick = function() {
+            cb("potato")
+        }
+        document.getElementById("new-rice").onclick = function() {
+            cb("rice")
+        }
+        // var ans = prompt(msg);
+        // choices = choices.map(function(e){
+        //     console.log(e);
+        //     return e.toLowerCase();
+        // });
+        // if (choices.indexOf(ans.toLowerCase()) < 0) {
+        //     alert("Invalid answer. You can type " + choices.join(", "))
+        //     return notifier.promptChoices(msg, choices)
+        // } else {
+        //     return ans;
+        // }
     },
     promptBool: function(msg) {
         var p = notifier.promptChoices(msg, ["y", "n"]);

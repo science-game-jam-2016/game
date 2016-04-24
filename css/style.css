@@ -371,3 +371,66 @@ body {
     opacity: 0;
     display: none;
 }
+
+#new-plant {
+    position: relative;
+    top: -800px;
+    width: 500px;
+    height: 280px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 40px black;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 1s;
+    -webkit-transition: all 0.5s;
+}
+
+#new-plant-row {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.plant-img2 {
+    width: 100px;
+    height: 100px;
+}
+
+.new-plant {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-plant:hover {
+   box-shadow: 0px 0px 10px black;
+}
+
+#new-plant-title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 40px;
+    border-bottom: 1px solid grey;
+    box-shadow: 0px 0px 10px black;
+    margin-bottom: 16px;
+}
+
+#new-btn {
+    padding: 6px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px black;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    border-radius: 4px;
+}
+#new-btn:hover{
+    box-shadow: 0px 0px 50px black;
+}

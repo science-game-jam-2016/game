@@ -10,10 +10,17 @@ var Game = function() {
 }
 
 Game.prototype.initGrid = function() {
-    gridContainer = document.getElementById('plant-grid');
-    this.plantGrid = new Grid(gridContainer)
+    var gridContainer = document.getElementById('plant-grid');
+    this.plantGrid = new Grid(gridContainer, this)
     this.plantGrid.draw()
     this.refreshVars()
+
+    function fn(e) {
+        for (var i = tooltip.length; i--;) {
+            tooltip[i].style.left = e.pageX + 'px';
+            tooltip[i].style.top = e.pageY + 'px';
+        }
+    }
 }
 
 Game.prototype.refreshVars = function() {
@@ -24,6 +31,7 @@ Game.prototype.refreshVars = function() {
 
 Game.prototype.plantPlant = function(type, e) {
     this.plantGrid.pP(type, e);
+    this.refreshVars()
 }
 
 Object.defineProperty(Game, "water", {
@@ -46,7 +54,8 @@ Object.defineProperty(Game, "day", {
     }
 });
 
-var Grid = function(container) {
+var Grid = function(container, game) {
+    this.g = game;
     this.c = container;
     this.x = 3;
     this.y = 5;
@@ -59,9 +68,14 @@ var Grid = function(container) {
 }
 
 Grid.prototype.pP = function(t, e) {
-    var x = e.srcElement.attributes["data-x"].value;
-    var y = e.srcElement.attributes["data-y"].value;
-    console.log(t)
+    var elem = e.srcElement;
+    if (elem.nodeName === "IMG") {
+        elem = e.srcElement.parentNode;
+    }
+    console.log(elem)
+    var x = elem.attributes["data-x"].value;
+    var y = elem.attributes["data-y"].value;
+
     switch (t) {
         case "Corn":
             this.setPlantAtLoc(x, y, new Corn())
@@ -90,7 +104,7 @@ Grid.prototype.draw = function() {
     var tmp = ""
     for (var i = 0; i < this.plants.length; i++) {
         for (var j = 0; j < this.plants[i].length; j++) {
-            tmp += "<div id=\"plant-spot\" class=\"" + this.plants[i][j].name + " " + ((this.plants[i][j].name === "blank") ? "" : "planted") + "\" " + "data-x=" + j + " data-y=" + i + "></div>"
+            tmp += "<div id=\"plant-spot\" class=\"" + this.plants[i][j].name + " " + ((this.plants[i][j].name === "blank") ? "" : "planted") + " tooltip\" " + "data-x=" + j + " data-y=" + i + "><img class=\"plant-img\" src=" + this.plants[i][j].image + ">" + ((this.plants[i][j].name === "blank") ? "<span class=\"tooltip-content\">Empty</span>" : "<span class=\"tooltip-content\">" + this.plants[i][j].getDescription() + "</span>") + "</div>"
         }
         tmp += "<br>"
     }
@@ -112,6 +126,16 @@ Grid.prototype.draw = function() {
             var p = notifier.promptBool("Would you like to remove that?")
             if (p) { that.delPlant(e); } else { notify.info("Cancelled."); }
         }, false);
+    }
+
+    var tooltip = document.querySelectorAll('.tooltip-content');
+    document.addEventListener('mousemove', fn, false);
+
+    function fn(e) {
+        for (var i = tooltip.length; i--;) {
+            tooltip[i].style.left = e.pageX + 'px';
+            tooltip[i].style.top = e.pageY + 'px';
+        }
     }
 }
 

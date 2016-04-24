@@ -1,7 +1,12 @@
 var Corn = function() {
-	Plant.apply(this, arguments)
+	Plant.call(this);
 	this.name = "Corn"
 	this.waterPerDay = 10 // TODO refine this value
-	this.image = "/img/corn_310464.jpg"
+	this.image = "/img/ear_of_yellow_corn.png"
 	this.dayGrowth = 2
+	this.profitPerDay = 10
 }
+
+Corn.prototype = Object.create(Plant.prototype);
+
+Corn.prototype.constructor = Corn;

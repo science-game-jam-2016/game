@@ -10,44 +10,42 @@
     <div id="header">
         <center>Hydroculture</center>
     </div>
-    <hr>
     <div id="game-container">
         <!-- Water level, pollutant level, etc -->
         <div id="game-frame">
-        <div id="meters">
-            <div id="day-meter" class="meter">
-                Day:
+            <div id="meters">
+                <div id="day-meter" class="meter">
+                    Day:
+                </div>
+                <div id="water-meter" class="meter">
+                    Water:
+                </div>
+                <div id="money-meter" class="meter">
+                    Money:
+                </div>
             </div>
-             <div id="water-meter" class="meter">
-                Water:
-            </div>
-             <div id="money-meter" class="meter">
-                Money:
-            </div>
-        </div>
-                
             <div id="plants">
                 <div id="plant-grid">
                 </div>
             </div>
-            <div id="creek">
-            	<img src="/img/river.png" height="100%">
+            <div id="creek" class="tooltip">
+                <img src="/img/river.png" height="100%">
+                <span class="tooltip-content">Creek: a blah blah blah</span>
             </div>
         </div>
-        <button onclick = nextfunction()>
+        <button onclick=n extfunction()>
             Next Day
         </button>
         <p id="Next"></p>
-        
     </div>
     <div id="seed-prompt">
     </div>
     <script src="js/notifier.js"></script>
+    <script src="js/plant.js"></script>
     <script src="js/plants/corn.js"></script>
     <script src="js/plants/blank.js"></script>
     <script src="js/plants/rice.js"></script>
     <script src="js/plants/potato.js"></script>
-    <script src="js/plant.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
 </body>

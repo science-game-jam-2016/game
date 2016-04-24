@@ -1,10 +1,10 @@
 var Potato = function() {
 	Plant.call(this);
 	this.name = "Potato"
-	this.waterPerDay = 10 // TODO refine this value
+	this.waterPerDay = 20 // TODO refine this value
 	this.image = "/img/potato.png"
 	this.dayGrowth = 4
-	this.profitPerDay = 10
+	this.profitPerDay = 30
 }
 
 Potato.prototype = Object.create(Plant.prototype);

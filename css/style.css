@@ -308,3 +308,10 @@ body {
 .shop-img {
      width: 100px;
 }
+
+#rainwater {
+     position: absolute;
+     top: 400px;
+     left: 700px;
+     display: none;
+}

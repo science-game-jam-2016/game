@@ -4,7 +4,7 @@ var Plant = function () {
 };
 
 Plant.prototype.getDescription = function() {
-	return this.description = "<b>" + this.name + "</b><br>Uses " + this.waterPerDay + " water per day.<br>Generates $" + this.profitPerDay + " per day.<br>" + (this.mature ? "Mature." : (this.dayGrowth - this.day + " days to mature."))
+	return this.description = "<b>" + this.name + "</b><br>Uses " + this.waterPerDay + " water per day.<br>Generates $" + this.profitPerDay + " per day.<br>" + ((this.mature ? "Mature." : (this.dayGrowth - this.day + " days to mature.")) + "<br>Lifetime left: " + (this.lifetime - this.day))
 };
 
 Plant.prototype.nextDay = function() {

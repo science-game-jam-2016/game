@@ -3,13 +3,14 @@ var Game = function() {
     this.money = 50;
     this.creekWater = 100;
     this.creekContaminated = false;
+    this.rainwater = false;
     this.day = 1;
     this.seeds = {
         corn: 0,
         potato: 0,
         rice: 0
     }
-    this.shop = new Shop()
+    this.shop = new Shop(this)
 }
 
 Game.prototype.initGrid = function() {
@@ -173,7 +174,11 @@ Object.defineProperty(Game, "plants", {
 
 Game.prototype.nextDay = function() {
     this.water += this.creekWater;
-    console.log(this.water);
+
+    if (this.rainwater) {
+    	this.water += this.rainwater.getWater()
+    }
+
     for (var i = 0; i < this.plantGrid.plants.length; i++) {
         for (var j = 0; j < this.plantGrid.plants[i].length; j++) {
             var plant = this.plantGrid.plants[i][j];
@@ -184,6 +189,9 @@ Game.prototype.nextDay = function() {
                 this.water -= plant.waterPerDay;
                 console.log(plant.waterPerDay)
                 plant.nextDay()
+                if (plant.day > plant.lifetime) {
+                	this.plantGrid.plants[i][j] = new Blank();
+                }
             }
         }
     }

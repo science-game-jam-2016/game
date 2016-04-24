@@ -1,6 +1,7 @@
-var Shop = function() {
+var Shop = function(g) {
     this.items = []
     this.e = document.getElementById('shop');
+    this.g = g;
 }
 
 Shop.prototype.show = function() {
@@ -16,8 +17,42 @@ Shop.prototype.show = function() {
 
 Shop.prototype.draw = function() {
     for (var i = 0; i < this.items.length; i++) {
-        document.getElementById("shop-items").innerHTML += "<div id=\"shop-item\" class=\"tooltip\"><img class=\"shop-img\" src=\"" + this.items[i].image +  "\"><span class=\"tooltip-content\"><b>" + this.items[i].name + "</b><br>" + this.items[i].description + "</span></div>"
+        document.getElementById("shop-items").innerHTML += "<div id=\"shop-item\" data-item-index=" + i + " class=\"tooltip shop-item\"><img class=\"shop-img\" src=\"" + this.items[i].image + "\"><span class=\"tooltip-content\"><b>" + this.items[i].name + "</b><br>" + this.items[i].description + "</span></div>"
     }
+    var blanks = document.getElementsByClassName("shop-item");
+    var that = this;
+    for (var i = 0; i < blanks.length; i++) {
+        blanks[i].addEventListener('click', function(e) {
+            that.buyItem(e)
+        }, false);
+    }
+}
+
+Shop.prototype.buyItem = function(e) {
+    var elem = e.srcElement;
+    if (elem.nodeName === "IMG") {
+        elem = e.srcElement.parentNode;
+    }
+    console.log(elem)
+    var item = this.items[parseInt(elem.attributes["data-item-index"].value)];
+
+    if (this.g.money >= item.price) {
+        this.g.money -= item.price;
+        if (item.name === "Rainwater Collection System") {
+        	if (this.g.rainwater) {
+        		notifier.info("You already have one.");
+        		return;
+        	}
+            this.g.rainwater = item;
+            this.showRainwater()
+        }
+
+        this.g.plantGrid.draw()
+        this.g.refreshVars()
+    } else {
+        notifier.info("You don't have enough money.")
+    }
+
 }
 
 Shop.prototype.hide = function() {
@@ -44,6 +79,10 @@ Shop.prototype.hide = function() {
 
 }
 
+Shop.prototype.showRainwater = function() {
+    document.getElementById("rainwater").style.display = "block";
+}
+
 var ShopItem = function() {
 
 }
@@ -56,10 +95,10 @@ var RainwaterCollection = function() {
     this.image = "/img/Rainwatercollection.png"
 }
 
-RainwaterCollection.prototype.getWater = function() {
-    return (Math.floor(Math.random() * (20 - 10 + 1)) + 10) * 5;
-}
-
 RainwaterCollection.prototype = Object.create(ShopItem.prototype);
 
 RainwaterCollection.prototype.constructor = RainwaterCollection;
+
+RainwaterCollection.prototype.getWater = function() {
+    return (Math.floor(Math.random() * (20 - 10 + 1)) + 10) * 5;
+}

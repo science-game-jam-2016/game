@@ -5,7 +5,7 @@ var Corn = function() {
 	this.image = "/img/ear_of_yellow_corn.png"
 	this.dayGrowth = 2
 	this.profitPerDay = 10
-	this.price = 5
+	this.price = 10
 	this.lifetime = this.dayGrowth + 3
 }
 

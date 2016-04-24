@@ -9,5 +9,5 @@ Plant.prototype.getDescription = function() {
 
 Plant.prototype.nextDay = function() {
 	this.day += 1;
-	this.mature = this.dayGrowth >= this.day
+	this.mature = this.dayGrowth <= this.day
 }

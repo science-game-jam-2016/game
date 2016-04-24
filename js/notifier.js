@@ -14,5 +14,9 @@ var notifier = {
     },
     info: function(msg) {
         alert(msg);
+    },
+    loss: function() {
+    	alert("You ran out of water. Better luck next time!");
+    	location.reload()
     }
 }

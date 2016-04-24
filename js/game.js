@@ -1,6 +1,7 @@
 var Game = function() {
     this.water = 100;
     this.money = 50;
+    this.creekWater = 100;
     this.day = 1;
     this.seeds = {
         corn: 0,
@@ -57,7 +58,7 @@ Object.defineProperty(Game, "day", {
 var Grid = function(container, game) {
     this.g = game;
     this.c = container;
-    this.x = 3;
+    this.x = 5;
     this.y = 5;
     this.plants = createArray(this.y, this.x);
     for (var i = this.plants.length - 1; i >= 0; i--) {
@@ -153,6 +154,30 @@ Object.defineProperty(Game, "plants", {
         this.draw()
     }
 });
+
+Game.prototype.nextDay = function() {
+    this.water += this.creekWater;
+    console.log(this.water);
+    for (var i = 0; i < this.plantGrid.plants.length; i++) {
+        for (var j = 0; j < this.plantGrid.plants[i].length; j++) {
+            var plant = this.plantGrid.plants[i][j];
+            if (plant.name !== "blank") {
+                if (plant.mature) {
+                    this.money += plant.profitPerDay;
+                }
+                this.water -= plant.waterPerDay;
+                console.log(plant.waterPerDay)
+                plant.nextDay()
+            }
+        }
+    }
+    this.day += 1
+    this.plantGrid.draw();
+    this.refreshVars();
+    if (this.water <= 0) {
+    	notifier.loss()
+    }
+}
 
 function createArray(length) {
     var arr = new Array(length || 0),

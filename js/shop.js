@@ -22,7 +22,8 @@ Shop.prototype.draw = function() {
 
 Shop.prototype.hide = function() {
 
-	this.e.className = "closed"
+	document.getElementById("shop").className = "closed"
+
 	// var b = document.getElementById('shop-btn');
 	// var c = document.getElementById('shop');
 

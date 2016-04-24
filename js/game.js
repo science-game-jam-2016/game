@@ -30,9 +30,6 @@ Game.prototype.initGrid = function() {
     document.getElementById('shop-btn').onclick = function() {
     	that.shop.show();
     }
-    document.getElementById('shop-close').onclick = function() {
-    	that.shop.hide();
-    }
 }
 
 Game.prototype.refreshVars = function() {
@@ -194,6 +191,10 @@ Game.prototype.nextDay = function() {
 
 Game.prototype.openShop = function() {
 	this.shop.show()
+}
+
+Game.prototype.closeShop = function() {
+	document.getElementById("shop").className = "closed";
 }
 
 function createArray(length) {

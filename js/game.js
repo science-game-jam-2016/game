@@ -21,6 +21,11 @@ Game.prototype.initGrid = function() {
 
     function fn(e) {
         for (var i = tooltip.length; i--;) {
+            if (e.id === "rainwater") {
+                tooltip[i].style.left = '0px';
+                tooltip[i].style.top = '0px';
+                return;
+            }
             tooltip[i].style.left = e.pageX + 'px';
             tooltip[i].style.top = e.pageY + 'px';
         }
@@ -88,22 +93,35 @@ Grid.prototype.pP = function(t, e) {
 
     switch (t) {
         case "Corn":
-            this.setPlantAtLoc(x, y, new Corn())
+            var p = new Corn();
             break;
 
         case "Rice":
-            this.setPlantAtLoc(x, y, new Rice())
+            var p = new Rice()
             break;
 
         case "Potato":
-            this.setPlantAtLoc(x, y, new Potato())
+            var p = new Potato()
             break;
 
         case "blank":
-            this.setPlantAtLoc(x, y, new Blank())
+            var p = new Blank()
+            this.setPlantAtLoc(x, y, p);
             break;
     }
+    if (p.name === "blank") {
+        return;
+    }
+    if (this.g.money > p.price) {
+        this.g.money -= p.price;
+        this.setPlantAtLoc(x, y, p);
+        this.g.refreshVars();
+    } else {
+        notifier.info("You can't buy that, it's too expensive. ")
+    }
+
 }
+
 
 Grid.prototype.delPlant = function(e) {
     this.pP("blank", e)
@@ -125,7 +143,7 @@ Grid.prototype.draw = function() {
     for (var i = 0; i < blanks.length; i++) {
         blanks[i].addEventListener('click', function(e) {
             var newPlant = notifier.promptChoices("What plant would you like to plant there?", ["Corn", "Potato", "Rice"])
-            that.pP(newPlant, e)
+            that.pP(newPlant, e);
         }, false);
     }
 
@@ -149,8 +167,13 @@ Grid.prototype.draw = function() {
                 console.log("yo")
                 return;
             }
+            if (e.id === "rainwater") {
+                tooltip[i].style.left = '0px';
+                tooltip[i].style.top = '0px';
+            }
             tooltip[i].style.left = e.pageX + 'px';
             tooltip[i].style.top = e.pageY + 'px';
+
         }
     }
 
@@ -176,7 +199,7 @@ Game.prototype.nextDay = function() {
     this.water += this.creekWater;
 
     if (this.rainwater) {
-    	this.water += this.rainwater.getWater()
+        this.water += this.rainwater.getWater()
     }
 
     for (var i = 0; i < this.plantGrid.plants.length; i++) {
@@ -190,7 +213,7 @@ Game.prototype.nextDay = function() {
                 console.log(plant.waterPerDay)
                 plant.nextDay()
                 if (plant.day > plant.lifetime) {
-                	this.plantGrid.plants[i][j] = new Blank();
+                    this.plantGrid.plants[i][j] = new Blank();
                 }
             }
         }
@@ -201,6 +224,12 @@ Game.prototype.nextDay = function() {
     if (this.water <= 0) {
         notifier.loss()
     }
+
+    document.getElementById("white").className = "white-visible"
+
+    setTimeout(function() {
+        document.getElementById("white").className = "white-inv"
+    }, 1000)
 }
 
 Game.prototype.openShop = function() {

@@ -17,7 +17,7 @@ Shop.prototype.show = function() {
 
 Shop.prototype.draw = function() {
     for (var i = 0; i < this.items.length; i++) {
-        document.getElementById("shop-items").innerHTML += "<div id=\"shop-item\" data-item-index=" + i + " class=\"tooltip shop-item\"><img class=\"shop-img\" src=\"" + this.items[i].image + "\"><span class=\"tooltip-content\"><b>" + this.items[i].name + "</b><br>" + this.items[i].description + "</span></div>"
+        document.getElementById("shop-items").innerHTML += "<div id=\"shop-item\" data-item-index=" + i + " class=\"tooltip shop-item\"><img class=\"shop-img\" src=\"" + this.items[i].image + "\"><span class=\"tooltip-content2\"><b>" + this.items[i].name + "</b><br>" + this.items[i].description + "</span></div>"
     }
     var blanks = document.getElementsByClassName("shop-item");
     var that = this;

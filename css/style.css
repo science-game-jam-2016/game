@@ -306,12 +306,67 @@ body {
 }
 
 .shop-img {
-     width: 100px;
+    width: 100px;
 }
 
 #rainwater {
-     position: absolute;
-     top: 400px;
-     left: 700px;
-     display: none;
+    position: relative;
+    top: -100px;
+    left: 500px;
+    display: none;
+}
+
+.tooltip .tooltip-content2 {
+    z-index: 10;
+    position: absolute;
+    padding: 14px 20px;
+    margin-top: -50px;
+    margin-left: 10px;
+    line-height: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -webkit-transition-delay: 0.3s;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -moz-transition-delay: 0.3s;
+}
+
+.tooltip:hover .tooltip-content2 {
+    display: inline;
+    position: absolute;
+    opacity: 1;
+    color: #111;
+    visibility: visible;
+    border: 1px solid grey;
+    background: white;
+}
+
+.tooltip .tooltip-content2 {
+    border-radius: 4px;
+    box-shadow: 0px 0px 20px black;
+}
+
+#white {
+    position: relative;
+    top: -1000px;
+    width: 800px;
+    left: 0px;
+    height: 500px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+
+.white-visible {
+    opacity: 1;
+    display: block;
+}
+
+.white-inv {
+    opacity: 0;
+    display: none;
 }

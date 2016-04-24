@@ -2,6 +2,7 @@ var Game = function() {
     this.water = 100;
     this.money = 50;
     this.creekWater = 100;
+    this.creekContaminated = false;
     this.day = 1;
     this.seeds = {
         corn: 0,
@@ -138,6 +139,8 @@ Grid.prototype.draw = function() {
             tooltip[i].style.top = e.pageY + 'px';
         }
     }
+
+    document.getElementById("creek-info").innerHTML = "<b>Creek</b><br>Generates " + this.g.creekWater + " per day.<br>Contaminated: " + this.g.creekContaminated
 }
 
 Grid.prototype.setPlantAtLoc = function(x, y, p) {

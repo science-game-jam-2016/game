@@ -148,7 +148,7 @@ br {
 
 body {
     margin: 0;
-    background-image: url('/img/barn.jpg');
+    background-image: url('/img/background.jpg');
     background-attachment: fixed;
     font-family: Oxygen;
 }

@@ -28,7 +28,7 @@ Game.prototype.initGrid = function() {
     this.shop.draw();
     var that = this;
     document.getElementById('shop-btn').onclick = function() {
-    	that.shop.show();
+        that.shop.show();
     }
 }
 
@@ -142,6 +142,12 @@ Grid.prototype.draw = function() {
 
     function fn(e) {
         for (var i = tooltip.length; i--;) {
+            if (e.srcElement.id.indexOf("shop") > 0) {
+                tooltip[i].style.left = '10px';
+                tooltip[i].style.top = '10px';
+                console.log("yo")
+                return;
+            }
             tooltip[i].style.left = e.pageX + 'px';
             tooltip[i].style.top = e.pageY + 'px';
         }
@@ -185,16 +191,16 @@ Game.prototype.nextDay = function() {
     this.plantGrid.draw();
     this.refreshVars();
     if (this.water <= 0) {
-    	notifier.loss()
+        notifier.loss()
     }
 }
 
 Game.prototype.openShop = function() {
-	this.shop.show()
+    this.shop.show()
 }
 
 Game.prototype.closeShop = function() {
-	document.getElementById("shop").className = "closed";
+    document.getElementById("shop").className = "closed";
 }
 
 function createArray(length) {

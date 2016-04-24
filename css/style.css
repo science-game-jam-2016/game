@@ -232,10 +232,7 @@ body {
 }
 
 #shop-item {
-    border: 2px dashed black;
-    width: 100px;
     display: inline-block;
-    height: 100px;
     cursor: pointer;
 }
 
@@ -252,6 +249,13 @@ body {
 .closed {
     transform: scale(0);
     -webkit-transform: scale(0);
+    opacity: 0;
+}
+
+.closed-alt {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    opacity: 0;
 }
 
 .open {
@@ -285,4 +289,22 @@ body {
     background-color: white;
     z-index: 1002;
     overflow: auto;
+}
+
+#start {
+    position: relative;
+    top: -500px;
+    width: 800px;
+    left: 0px;
+    height: 500px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s;
+    -webkit-transition: all 0.5s;
+    opacity: 1;
+}
+
+.shop-img {
+     width: 100px;
 }

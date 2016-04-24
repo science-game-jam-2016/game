@@ -21,3 +21,7 @@ document.getElementsByTagName('body')[0].onclick = function(e) {
 		g.closeShop();
 	}
 }
+
+document.getElementById('start').onclick = function() {
+	document.getElementById('start').className = "closed-alt";
+}

@@ -5,6 +5,7 @@ var Potato = function() {
 	this.image = "/img/potato.png"
 	this.dayGrowth = 4
 	this.profitPerDay = 30
+	this.price = 10
 }
 
 Potato.prototype = Object.create(Plant.prototype);
